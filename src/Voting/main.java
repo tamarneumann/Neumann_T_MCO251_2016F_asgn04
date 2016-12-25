@@ -17,22 +17,15 @@ public class main {
 		
 		VotesObservable observable=new VotesObservable(states);
 		
-		System.out.println("Favors the Republican:");
+		
 		abstractVoteObserver observer=new ObserverFavorRepublican(observable);
 		
-		
-		System.out.println("\nFavors the Democratic:");
 		observer=new ObserverFavorDemocratic(observable);
 		
-		
-		System.out.println("\nFavors the Democratic popular vote, but favors the Republican electoral vote:");
 		observer=new ObserverDemPop_RepElect(observable);
 		
-		System.out.println("\nFavors Democratic popular vote, but honest electoral college:");
 		observer=new ObserverDemHonest_RepFavElect(observable);
 		
-		
-		System.out.println("\nHonest Results:");
 		observer=new ObserverHonest(observable);
 	
 		observable.setStates(states);
